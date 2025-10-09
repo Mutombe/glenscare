@@ -744,7 +744,7 @@ const ServicePage = ({
       "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&q=80",
     ],
     regional: [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+      "/6.jpg",
       "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80",
       "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=80",
       "https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=80",

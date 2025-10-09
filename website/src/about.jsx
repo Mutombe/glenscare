@@ -67,7 +67,7 @@ const AboutPage = () => {
       year: '1952', 
       title: 'Founded', 
       desc: 'Glens Removals established in Zimbabwe',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80'
+      image: '/1.jpeg'
     },
     { 
       year: '1975', 
@@ -125,7 +125,7 @@ const AboutPage = () => {
           >
             <div className="relative rounded-sm overflow-hidden shadow-2xl">
               <img 
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
+                src="/3.jpeg"
                 alt="Glens Care Team"
                 className="w-full h-64 object-cover"
               />
@@ -209,7 +209,7 @@ const AboutPage = () => {
                 {/* Main Image */}
                 <div className="rounded-sm overflow-hidden shadow-2xl">
                   <img 
-                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
+                    src="/3.jpeg"
                     alt="Professional moving team"
                     className="w-full h-[500px] object-cover"
                   />
@@ -284,25 +284,25 @@ const AboutPage = () => {
                 value: counters.years, 
                 label: 'Years of Excellence', 
                 suffix: '+',
-                image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80'
+                image: '/1.jpeg'
               },
               { 
                 value: counters.countries, 
                 label: 'Countries Served', 
                 suffix: '+',
-                image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&q=80'
+                image: '/7.jpg'
               },
               { 
                 value: counters.clients.toLocaleString(), 
                 label: 'Happy Clients', 
                 suffix: '+',
-                image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80'
+                image: '/11.jpg'
               },
               { 
                 value: counters.moves.toLocaleString(), 
                 label: 'Successful Moves', 
                 suffix: '+',
-                image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&q=80'
+                image: '/6.jpg'
               }
             ].map((stat, idx) => (
               <motion.div
@@ -485,9 +485,9 @@ const AboutPage = () => {
       {/* Values Section with Team Image */}
       <section className="py-12 sm:py-16 lg:py-20 relative overflow-hidden" style={{ backgroundColor: colors.darkGray }}>
         {/* Background Image */}
-        <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 opacity-50">
           <img 
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80"
+            src="/main.jpg"
             alt="Team collaboration"
             className="w-full h-full object-cover"
           />
@@ -632,12 +632,12 @@ const AboutPage = () => {
           {/* Team Image Gallery */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-12">
             {[
-              'https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=400&q=80',
-              'https://images.unsplash.com/photo-1521898284481-a5ec348cb555?w=400&q=80',
-              'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&q=80',
-              'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400&q=80',
-              'https://images.unsplash.com/photo-1601455763557-db1bea8a9a5a?w=400&q=80',
-              'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80'
+              '/2.jpeg',
+              '/3.jpeg',
+              '/4.jpeg',
+              '/5.jpeg',
+              '/1.jpeg',
+              '/6.jpg',
             ].map((img, idx) => (
               <motion.div
                 key={idx}
@@ -691,7 +691,7 @@ const AboutPage = () => {
         {/* Background Image */}
         <div className="absolute inset-0 opacity-30">
           <img 
-            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80"
+            src="/2.jpeg"
             alt="Moving truck"
             className="w-full h-full object-cover"
           />

@@ -482,7 +482,7 @@ const HomePage = () => {
               style={{ backgroundColor: colors.darkGray }}
             >
               <img
-                src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=800&q=80"
+                src="/6.jpg"
                 alt="Moving truck"
                 className="absolute inset-0 w-full h-full object-cover opacity-70"
               />
@@ -628,11 +628,11 @@ const HomePage = () => {
               style={{ backgroundColor: colors.yellow }}
             >
               <img
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
+                src="/9.jpg"
                 alt="Happy customers"
                 className="absolute inset-0 w-full h-full object-cover opacity-40"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/80 to-orange-400/60"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/60 to-orange-400/60"></div>
               <div className="relative z-10 h-full p-6 sm:p-8 flex flex-col justify-between">
                 <div>
                   <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-sm px-4 py-2 mb-4">
@@ -751,7 +751,7 @@ const HomePage = () => {
                   <div className="bg-white rounded-sm p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 h-full border border-gray-100 relative overflow-hidden">
                     {/* Hover Gradient Background */}
                     <div
-                      className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                      className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-5 group-hover:opacity-5 transition-opacity duration-500`}
                     ></div>
 
                     <div className="relative z-10">
