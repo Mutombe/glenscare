@@ -218,82 +218,83 @@ const HomePage = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative order-1 lg:order-2"
             >
-              <div className="relative aspect-[4/3]">
+              <div className="relative aspect-[4/5] py-4">
                 {/* SVG with masked strokes */}
                 <svg
-                  viewBox="0 0 600 450"
+                  viewBox="0 0 600 500"
                   className="w-full h-full"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <defs>
                     {/* Define masks for each stroke */}
                     <mask id="stroke1">
-                      <rect x="0" y="0" width="600" height="450" fill="black" />
+                      <rect x="0" y="0" width="600" height="500" fill="black" />
                       <rect
-                        x="50"
+                        x="30"
                         y="30"
-                        width="180"
-                        height="390"
-                        rx="90"
-                        ry="90"
+                        width="220"
+                        height="440"
+                        rx="110"
+                        ry="110"
                         fill="white"
-                        transform="rotate(-15 140 220)"
+                        transform="rotate(-15 140 250)"
                       />
                     </mask>
                     <mask id="stroke2">
-                      <rect x="0" y="0" width="600" height="450" fill="black" />
+                      <rect x="0" y="0" width="600" height="500" fill="black" />
                       <rect
-                        x="200"
-                        y="50"
-                        width="180"
-                        height="360"
-                        rx="90"
-                        ry="90"
+                        x="180"
+                        y="35"
+                        width="220"
+                        height="430"
+                        rx="110"
+                        ry="110"
                         fill="white"
-                        transform="rotate(-15 290 225)"
+                        transform="rotate(-15 290 250)"
                       />
                     </mask>
                     <mask id="stroke3">
-                      <rect x="0" y="0" width="600" height="450" fill="black" />
+                      <rect x="0" y="0" width="600" height="500" fill="black" />
                       <rect
-                        x="350"
-                        y="40"
-                        width="180"
-                        height="380"
-                        rx="90"
-                        ry="90"
+                        x="330"
+                        y="30"
+                        width="220"
+                        height="440"
+                        rx="110"
+                        ry="110"
                         fill="white"
-                        transform="rotate(-15 440 225)"
+                        transform="rotate(-15 440 250)"
                       />
                     </mask>
                     <mask id="stroke4">
-                      <rect x="0" y="0" width="600" height="450" fill="black" />
+                      <rect x="0" y="0" width="600" height="500" fill="black" />
                       <rect
-                        x="120"
-                        y="180"
-                        width="370"
-                        height="180"
-                        rx="90"
-                        ry="90"
+                        x="100"
+                        y="200"
+                        width="420"
+                        height="220"
+                        rx="110"
+                        ry="110"
                         fill="white"
-                        transform="rotate(-15 300 270)"
+                        transform="rotate(-15 310 310)"
                       />
                     </mask>
                   </defs>
 
-                  {/* Apply image to each stroke with masks */}
+                  {/* Apply company images to each stroke with masks */}
                   <motion.g
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.3, duration: 0.6 }}
                   >
                     <image
-                      href="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop&q=80"
+                      href="/glens3.webp"
                       x="0"
                       y="0"
                       width="600"
-                      height="450"
+                      height="500"
                       mask="url(#stroke1)"
+                      preserveAspectRatio="xMidYMid slice"
                       className="drop-shadow-lg"
                     />
                   </motion.g>
@@ -304,12 +305,13 @@ const HomePage = () => {
                     transition={{ delay: 0.4, duration: 0.6 }}
                   >
                     <image
-                      href="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop&q=80"
+                      href="/glens3.webp"
                       x="0"
                       y="0"
                       width="600"
-                      height="450"
+                      height="500"
                       mask="url(#stroke2)"
+                      preserveAspectRatio="xMidYMid slice"
                       className="drop-shadow-lg"
                     />
                   </motion.g>
@@ -320,12 +322,13 @@ const HomePage = () => {
                     transition={{ delay: 0.5, duration: 0.6 }}
                   >
                     <image
-                      href="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop&q=80"
+                      href="/glens3.webp"
                       x="0"
                       y="0"
                       width="600"
-                      height="450"
+                      height="500"
                       mask="url(#stroke3)"
+                      preserveAspectRatio="xMidYMid slice"
                       className="drop-shadow-lg"
                     />
                   </motion.g>
@@ -336,12 +339,13 @@ const HomePage = () => {
                     transition={{ delay: 0.6, duration: 0.6 }}
                   >
                     <image
-                      href="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop&q=80"
+                      href="/glens3.webp"
                       x="0"
                       y="0"
                       width="600"
-                      height="450"
+                      height="500"
                       mask="url(#stroke4)"
+                      preserveAspectRatio="xMidYMid slice"
                       className="drop-shadow-lg"
                     />
                   </motion.g>
@@ -374,13 +378,15 @@ const HomePage = () => {
                 >
                   <div className="flex items-center gap-3">
                     <div className="flex -space-x-2">
-                      {[1, 2, 3].map((i) => (
+                      {[
+                        { gender: "women", id: "78" },
+                        { gender: "men", id: "91" },
+                        { gender: "women", id: "32" },
+                      ].map((person, i) => (
                         <img
                           key={i}
-                          src={`https://randomuser.me/api/portraits/${
-                            i === 1 ? "women" : i === 2 ? "men" : "women"
-                          }/${i === 1 ? "44" : i === 2 ? "52" : "68"}.jpg`}
-                          alt={`Client ${i}`}
+                          src={`https://randomuser.me/api/portraits/${person.gender}/${person.id}.jpg`}
+                          alt={`Client ${i + 1}`}
                           className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white object-cover"
                         />
                       ))}
@@ -650,13 +656,17 @@ const HomePage = () => {
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex -space-x-3">
-                    {[1, 2, 3, 4, 5].map((i) => (
+                    {[
+                      { gender: "men", id: "44" },
+                      { gender: "men", id: "52" },
+                      { gender: "women", id: "65" },
+                      { gender: "men", id: "91" },
+                      { gender: "women", id: "32" },
+                    ].map((person, i) => (
                       <img
                         key={i}
-                        src={`https://randomuser.me/api/portraits/${
-                          i === 1 ? "women" : i === 2 ? "men" : "women"
-                        }/${i === 1 ? "44" : i === 2 ? "52" : "68"}.jpg`}
-                        alt={`Client ${i}`}
+                        src={`https://randomuser.me/api/portraits/${person.gender}/${person.id}.jpg`}
+                        alt={`Client ${i + 1}`}
                         className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white object-cover"
                       />
                     ))}
@@ -824,7 +834,11 @@ const HomePage = () => {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-sm mb-4"
               style={{ backgroundColor: colors.yellow }}
             >
-              <MdOutlineStarBorderPurple500 size={20} fill="currentColor" className="text-black" />
+              <MdOutlineStarBorderPurple500
+                size={20}
+                fill="currentColor"
+                className="text-black"
+              />
               <span className="text-sm font-bold text-black">
                 Client Testimonials
               </span>

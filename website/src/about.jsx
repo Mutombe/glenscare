@@ -262,6 +262,122 @@ const AboutPage = () => {
         </div>
       </section>
 
+      
+      {/* Mission & Vision Section */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
+            {/* Mission */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="bg-gradient-to-br from-yellow-50 to-white rounded-sm p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all h-full">
+                {/* Icon Badge */}
+                <div className="inline-flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-sm flex items-center justify-center" 
+                       style={{ backgroundColor: colors.yellow }}>
+                    <Target size={24} className="text-black" />
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold" style={{ color: colors.darkGray }}>
+                    Our Vision
+                  </h3>
+                </div>
+                
+                {/* Decorative Quote Mark */}
+                <div className="text-6xl sm:text-7xl font-serif opacity-10 absolute top-4 right-4" 
+                     style={{ color: colors.yellow }}>
+                  "
+                </div>
+                
+                <p className="text-base sm:text-lg text-gray-700 leading-relaxed relative z-10">
+                   To be Southern Africa’s leading logistics and relocation brand, connecting people and businesses through
+                  <span className="font-semibold" style={{ color: colors.yellow }}> efficient</span>, 
+                  <span className="font-semibold" style={{ color: colors.yellow }}> reliable</span>, and 
+                  <span className="font-semibold" style={{ color: colors.yellow }}> caring </span> services.
+                </p>
+                
+                {/* Bottom Accent */}
+                <div className="mt-6 flex items-center gap-2">
+                  <div className="w-12 h-1 rounded-sm" style={{ backgroundColor: colors.yellow }}></div>
+                  <div className="w-6 h-1 rounded-sm bg-gray-300"></div>
+                  <div className="w-3 h-1 rounded-sm bg-gray-200"></div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Vision */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="bg-gradient-to-br from-gray-50 to-white rounded-sm p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all h-full">
+                {/* Icon Badge */}
+                <div className="inline-flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-sm flex items-center justify-center" 
+                       style={{ backgroundColor: colors.darkGray }}>
+                    <TrendingUp size={24} className="text-white" />
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold" style={{ color: colors.darkGray }}>
+                    Our Mission
+                  </h3>
+                </div>
+                
+                {/* Decorative Quote Mark */}
+                <div className="text-6xl sm:text-7xl font-serif opacity-10 absolute top-4 right-4" 
+                     style={{ color: colors.darkGray }}>
+                  "
+                </div>
+                
+                <p className="text-base sm:text-lg text-gray-700 leading-relaxed relative z-10">
+                  To to deliver
+                  <span className="font-semibold" style={{ color: colors.darkGray }}> seamless</span>
+                  door to door moving and storage services through skilled professionals, modern logistics, and a customer first approach. 
+                </p>
+                
+                {/* Bottom Accent */}
+                <div className="mt-6 flex items-center gap-2">
+                  <div className="w-12 h-1 rounded-sm" style={{ backgroundColor: colors.darkGray }}></div>
+                  <div className="w-6 h-1 rounded-sm bg-gray-300"></div>
+                  <div className="w-3 h-1 rounded-sm bg-gray-200"></div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Supporting Image or Stats Row */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4"
+          >
+            <div className="bg-yellow-50 rounded-sm p-4 text-center border-l-4" style={{ borderColor: colors.yellow }}>
+              <div className="text-xl sm:text-2xl font-bold mb-1" style={{ color: colors.darkGray }}>
+                Customer First
+              </div>
+              <p className="text-xs sm:text-sm text-gray-600">Always putting your needs first</p>
+            </div>
+            <div className="bg-gray-50 rounded-sm p-4 text-center border-l-4" style={{ borderColor: colors.darkGray }}>
+              <div className="text-xl sm:text-2xl font-bold mb-1" style={{ color: colors.darkGray }}>
+                Innovation Driven
+              </div>
+              <p className="text-xs sm:text-sm text-gray-600">Embracing modern solutions</p>
+            </div>
+            <div className="bg-green-50 rounded-sm p-4 text-center border-l-4 border-green-500">
+              <div className="text-xl sm:text-2xl font-bold mb-1" style={{ color: colors.darkGray }}>
+                Sustainability Focused
+              </div>
+              <p className="text-xs sm:text-sm text-gray-600">Caring for our planet</p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Statistics Section with Images - Mobile First */}
       <section className="py-12 sm:py-16 lg:py-20 relative" style={{ backgroundColor: colors.cream }}>
         <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
