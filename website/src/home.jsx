@@ -62,18 +62,22 @@ const HomePage = () => {
     {
       text: "Satisfactory service, Keep it up glens!!",
       author: "B.Ngirivana, Delta Beverages",
+      companyLogo: "/delta.png",
     },
-    { text: "Generally good service", author: "ZIMRA" },
+    { text: "Generally good service", author: "ZIMRA", companyLogo: "/zimra.webp" },
     {
       text: "Will be happy to use Glens Removals again in future!",
       author: "Mr Fore, Arctura Mine",
+      companyLogo: "/tn.png",
     },
     {
       text: "Very good service. Will use Glens again.",
       author: "SERA PROGRAM",
+      companyLogo: "/SERA2.png",
     },
-    { text: "Very pleasant and professional crew", author: "EDGARS STORE" },
-    { text: "I appreciate your service", author: "INNSCOR FAST FOODS" },
+    { text: "Very pleasant and professional crew", author: "EDGARS STORE", companyLogo: "/edgars.png" },
+    { text: "I appreciate your service", author: "INNSCOR FAST FOODS", companyLogo: "/innscor.png" },
+
   ];
 
   const stats = [
@@ -817,7 +821,6 @@ const HomePage = () => {
           </motion.div>
         </div>
       </section>
-
       {/* Testimonials */}
       <section
         className="py-12 sm:py-20"
@@ -874,6 +877,17 @@ const HomePage = () => {
                   />
                 </div>
 
+                {/* Company Logo (if available) */}
+                {testimonial.companyLogo && (
+                  <div className="mb-4">
+                    <img
+                      src={testimonial.companyLogo}
+                      alt={`${testimonial.company} logo`}
+                      className="h-8 sm:h-10 w-auto object-contain"
+                    />
+                  </div>
+                )}
+
                 {/* Stars */}
                 <div className="flex gap-1 mb-4">
                   {[1, 2, 3, 4, 5].map((star) => (
@@ -893,8 +907,16 @@ const HomePage = () => {
 
                 {/* Author */}
                 <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-sm bg-gradient-to-br from-yellow-400 to-yellow-500 flex items-center justify-center text-white font-bold text-sm sm:text-base">
-                    {testimonial.author.charAt(0)}
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-sm bg-gradient-to-br from-yellow-400 to-yellow-500 flex items-center justify-center text-white font-bold text-sm sm:text-base overflow-hidden">
+                    {testimonial.authorImage ? (
+                      <img
+                        src={testimonial.authorImage}
+                        alt={testimonial.author}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      testimonial.author.charAt(0)
+                    )}
                   </div>
                   <div>
                     <p
@@ -924,17 +946,30 @@ const HomePage = () => {
               Accredited and trusted by leading organizations
             </p>
             <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-8">
-              {["FIDI", "IAM", "FAIM", "ISO 9001"].map((badge, idx) => (
+              {[
+                { name: "FIDI", logo: "/FIDI.png" },
+                { name: "IAM", logo: "/IAM.png" },
+                { name: "FAIM", logo: "/FAIM.png" },
+                { name: "ISO 9001", logo: "/iso.png" },
+              ].map((badge, idx) => (
                 <motion.div
                   key={idx}
                   whileHover={{ scale: 1.1 }}
-                  className="px-6 py-3 rounded-sm border-2 font-bold text-sm sm:text-base"
+                  className="px-6 py-3 rounded-sm border-2 flex items-center justify-center min-w-[120px] h-16 sm:h-20"
                   style={{
-                    borderColor: colors.darkGray,
-                    color: colors.darkGray,
+                    borderColor: colors.yellow,
                   }}
                 >
-                  {badge}
+                  <img
+                    src={badge.logo}
+                    alt={`${badge.name} certification`}
+                    className="max-h-full w-auto object-contain"
+                    onError={(e) => {
+                      // Fallback to text if image fails to load
+                      e.target.style.display = "none";
+                      e.target.parentElement.innerHTML = `<span class="font-bold text-sm sm:text-base" style="color: ${colors.darkGray}">${badge.name}</span>`;
+                    }}
+                  />
                 </motion.div>
               ))}
             </div>
