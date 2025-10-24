@@ -123,10 +123,10 @@ const HomePage = () => {
                   className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight"
                   style={{ color: colors.darkGray }}
                 >
-                  From Crane to Train,{" "}
+                  Care,{" "}
                   <span className="relative inline-block">
                     <span style={{ color: colors.yellow }}>
-                      We Do Everything
+                      They do you know !
                     </span>
                     <motion.div
                       initial={{ scaleX: 0 }}
