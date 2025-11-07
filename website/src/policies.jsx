@@ -40,58 +40,75 @@ const PoliciesPage = () => {
       desc: "Glens Removals subscribes against bribery and corruption of any form within the international moving industry.",
       icon: Scale,
       color: "#FF6B6B",
-      category: "Ethics"
+      category: "Ethics",
+      pdfUrl: "/GLENS REMOVALS -ANTI TRUST CHARTER_2023.pdf"
     },
     {
       title: "Service Level Agreement",
       desc: "Glens Removals is a firm believer in the delivery of services to its customers according to customers expected needs based on quality.",
       icon: CheckCircle,
       color: "#4ECDC4",
-      category: "Quality"
+      category: "Quality",
+      pdfUrl: "/Glens' Terms and Conditions.pdf"
     },
     {
       title: "Terms and Conditions for Carriage",
       desc: "Conditions upon which goods are packed, moved and/or warehoused by GLENS REMOVALS.",
       icon: FileText,
       color: "#95E1D3",
-      category: "Legal"
+      category: "Legal",
+      pdfUrl: "/Glens' Terms and Conditions.pdf"
     },
     {
       title: "Privacy Policy",
       desc: "Details the type of Personal Information we collect, how it is used, protected and disposed of.",
       icon: Lock,
       color: "#F38181",
-      category: "Privacy"
+      category: "Privacy",
+      pdfUrl: "/GLENS REMOVALS DATA PROTECTION POLICY.pdf"
     },
     {
       title: "FIDI Certificate",
       desc: "Glens Removals & Storage is certified by the FIDI Global Alliance as complying with the requirements of the FIDI quality standards.",
       icon: Award,
       color: "#A8E6CF",
-      category: "Certification"
+      category: "Certification",
+      pdfUrl: "/FIDI ABC Charter_FINAL.pdf"
     },
     {
-      title: "Confirmation of Quality Assurance",
-      desc: "Glens Removals has demonstrated a consistent high level of quality and meets FAIM Internal Audit requirements.",
+      title: "IFA Certificate",
+      desc: "Glens Removals has demonstrated a consistent high level of quality and meets IFA Internal Audit requirements.",
       icon: SiFsecure,
       color: "#FFD3B6",
-      category: "Quality"
+      category: "Quality",
+      pdfUrl: "/GLENS REMOVALS AND STORAGE 2018 IFA Certificate.pdf"
     },
     {
       title: "Code of Ethics and Conduct",
       desc: "This Code represents the ethical, social, and environmental behaviour that Glens Removals & Storage commits to.",
       icon: Users,
       color: "#FFAAA5",
-      category: "Ethics"
+      category: "Ethics",
+      pdfUrl: "/ETHICS & CODE OF CONDUCT 2023.pdf"
     },
     {
       title: "Corporate Responsibility, Social & Sustainability Policy",
       desc: "We are committed to caring for the communities we operate in today while building a better tomorrow.",
       icon: GiMapleLeaf,
       color: "#8FD9A8",
-      category: "Sustainability"
+      category: "Sustainability",
+      pdfUrl: "/CORPORATE RESPONSIBILITY, SOCIAL & SUSTAINABILITY POLICY.pdf"
     }
   ];
+
+  const handleDownload = (pdfUrl, title) => {
+    const link = document.createElement('a');
+    link.href = pdfUrl;
+    link.download = `${title.replace(/\s+/g, '-').toLowerCase()}.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <div className="pt-20">
@@ -155,6 +172,7 @@ const PoliciesPage = () => {
                 <motion.button
                   whileHover={{ scale: 1.05, x: 5 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => handleDownload(policies[0].pdfUrl, policies[0].title)}
                   className="px-8 py-4 rounded-sm font-bold shadow-lg flex items-center gap-3"
                   style={{ backgroundColor: colors.yellow, color: colors.black }}
                 >
@@ -190,11 +208,12 @@ const PoliciesPage = () => {
                 <p className="text-white/90 text-sm mb-6">{policies[1].desc}</p>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
+                  onClick={() => handleDownload(policies[1].pdfUrl, policies[1].title)}
                   className="w-full px-4 py-3 rounded-sm font-bold shadow-lg flex items-center justify-center gap-2"
                   style={{ backgroundColor: colors.yellow, color: colors.black }}
                 >
-                  <Eye size={16} />
-                  View Policy
+                  <Download size={16} />
+                  Download
                 </motion.button>
               </div>
             </motion.div>
@@ -226,6 +245,7 @@ const PoliciesPage = () => {
                 </div>
                 <motion.button
                   whileHover={{ scale: 1.1, rotate: -10 }}
+                  onClick={() => handleDownload(policies[2].pdfUrl, policies[2].title)}
                   className="w-10 h-10 rounded-sm flex items-center justify-center flex-shrink-0 shadow-lg"
                   style={{ backgroundColor: colors.yellow }}
                 >
@@ -262,10 +282,11 @@ const PoliciesPage = () => {
                 </div>
                 <motion.button
                   whileHover={{ scale: 1.1 }}
+                  onClick={() => handleDownload(policies[3].pdfUrl, policies[3].title)}
                   className="w-10 h-10 rounded-sm flex items-center justify-center flex-shrink-0 shadow-lg"
                   style={{ backgroundColor: colors.yellow }}
                 >
-                  <ArrowRight size={18} color={colors.black} />
+                  <Download size={18} color={colors.black} />
                 </motion.button>
               </div>
             </motion.div>
@@ -295,10 +316,12 @@ const PoliciesPage = () => {
                 <p className="text-gray-700 text-sm mb-6">{policies[4].desc}</p>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
-                  className="w-full px-4 py-3 rounded-sm font-bold shadow-lg"
+                  onClick={() => handleDownload(policies[4].pdfUrl, policies[4].title)}
+                  className="w-full px-4 py-3 rounded-sm font-bold shadow-lg flex items-center justify-center gap-2"
                   style={{ backgroundColor: colors.yellow, color: colors.black }}
                 >
-                  View Certificate
+                  <Download size={16} />
+                  Download
                 </motion.button>
               </div>
             </motion.div>
@@ -327,10 +350,12 @@ const PoliciesPage = () => {
                 <p className="text-white/90 text-sm mb-6">{policies[5].desc}</p>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
-                  className="w-full px-4 py-3 rounded-sm font-bold shadow-lg"
+                  onClick={() => handleDownload(policies[5].pdfUrl, policies[5].title)}
+                  className="w-full px-4 py-3 rounded-sm font-bold shadow-lg flex items-center justify-center gap-2"
                   style={{ backgroundColor: colors.yellow, color: colors.black }}
                 >
-                  Read More
+                  <Download size={16} />
+                  Download
                 </motion.button>
               </div>
             </motion.div>
@@ -361,6 +386,7 @@ const PoliciesPage = () => {
                 <p className="text-gray-300 text-sm mb-6">{policies[6].desc}</p>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
+                  onClick={() => handleDownload(policies[6].pdfUrl, policies[6].title)}
                   className="w-full px-4 py-3 rounded-sm font-bold shadow-lg flex items-center justify-center gap-2"
                   style={{ backgroundColor: colors.yellow, color: colors.black }}
                 >
@@ -403,11 +429,12 @@ const PoliciesPage = () => {
                   <motion.button
                     whileHover={{ scale: 1.05, rotate: -5 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => handleDownload(policies[7].pdfUrl, policies[7].title)}
                     className="px-8 py-4 rounded-sm font-bold shadow-xl whitespace-nowrap flex items-center gap-3"
                     style={{ backgroundColor: colors.yellow, color: colors.black }}
                   >
-                    <GiWorld size={20} />
-                    Learn More
+                    <Download size={20} />
+                    Download
                   </motion.button>
                 </div>
               </div>
