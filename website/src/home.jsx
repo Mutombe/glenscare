@@ -58,13 +58,31 @@ const colors = {
 };
 
 const HomePage = () => {
+  // Hero Background Carousel
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const heroBackgroundImages = ["/glens3.webp"];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === heroBackgroundImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   const testimonials = [
     {
       text: "Satisfactory service, Keep it up glens!!",
       author: "B.Ngirivana, Delta Beverages",
       companyLogo: "/delta.png",
     },
-    { text: "Generally good service", author: "ZIMRA", companyLogo: "/zimra.webp" },
+    {
+      text: "Generally good service",
+      author: "ZIMRA",
+      companyLogo: "/zimra.webp",
+    },
     {
       text: "Will be happy to use Glens Removals again in future!",
       author: "Mr Fore, Arctura Mine",
@@ -75,9 +93,16 @@ const HomePage = () => {
       author: "SERA PROGRAM",
       companyLogo: "/SERA2.png",
     },
-    { text: "Very pleasant and professional crew", author: "EDGARS STORE", companyLogo: "/edgars.png" },
-    { text: "I appreciate your service", author: "INNSCOR FAST FOODS", companyLogo: "/innscor.png" },
-
+    {
+      text: "Very pleasant and professional crew",
+      author: "EDGARS STORE",
+      companyLogo: "/edgars.png",
+    },
+    {
+      text: "I appreciate your service",
+      author: "INNSCOR FAST FOODS",
+      companyLogo: "/innscor.png",
+    },
   ];
 
   const stats = [
@@ -89,9 +114,32 @@ const HomePage = () => {
 
   return (
     <div className="pt-20">
-      {/* Hero Section - Split Layout */}
-      <section className="relative min-h-screen flex items-center bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 w-full">
+      {/* Hero Section - Split Layout with Background Carousel */}
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Background Carousel */}
+        <div className="absolute inset-0">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentImageIndex}
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 1.5 }}
+              className="absolute inset-0"
+            >
+              <img
+                src={heroBackgroundImages[currentImageIndex]}
+                alt="Professional movers"
+                className="w-full h-full object-cover"
+                loading="eager"
+              />
+              {/* Gradient overlay for better text readability */}
+              <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-white/70"></div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 w-full relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Content */}
             <motion.div
@@ -132,13 +180,6 @@ const HomePage = () => {
                     <span style={{ color: colors.yellow }}>
                       They do you know !
                     </span>
-                    <motion.div
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ delay: 0.8, duration: 0.6 }}
-                      className="absolute -bottom-2 left-0 right-0 h-3 bg-yellow-200 -z-10"
-                      style={{ originX: 0 }}
-                    />
                   </span>
                 </motion.h1>
 
@@ -355,22 +396,27 @@ const HomePage = () => {
                   </motion.g>
                 </svg>
 
-                {/* Floating Badge */}
+                {/* Accreditation Badges - FIDI & FAIM */}
                 <motion.div
                   initial={{ scale: 0, rotate: -180 }}
                   animate={{ scale: 1, rotate: 0 }}
                   transition={{ delay: 1.2, type: "spring", stiffness: 200 }}
-                  className="absolute top-4 right-4 sm:top-8 sm:right-8 bg-white rounded-sm p-3 sm:p-4 shadow-xl z-20"
+                  className="absolute top-4 right-4 sm:top-8 sm:right-8 z-20 flex flex-col gap-3"
                 >
-                  <div className="text-center">
-                    <div
-                      className="text-lg sm:text-2xl font-bold"
-                      style={{ color: colors.yellow }}
-                    >
-                      FIDI
-                    </div>
-                    <div className="text-xs text-gray-600">Accredited</div>
-                  </div>
+                  {/* FIDI Badge */}
+                  <a
+                    href="https://www.fidi.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white rounded-sm p-3 sm:p-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                  >
+                    <img
+                      src="/FIDI.png"
+                      alt="FIDI Accredited"
+                      className="h-8 sm:h-10 w-auto object-contain"
+                      loading="lazy"
+                    />
+                  </a>
                 </motion.div>
 
                 {/* Clients Counter */}
@@ -392,6 +438,7 @@ const HomePage = () => {
                           src={`https://randomuser.me/api/portraits/${person.gender}/${person.id}.jpg`}
                           alt={`Client ${i + 1}`}
                           className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white object-cover"
+                          loading="lazy"
                         />
                       ))}
                     </div>
@@ -495,6 +542,7 @@ const HomePage = () => {
                 src="/6.jpg"
                 alt="Moving truck"
                 className="absolute inset-0 w-full h-full object-cover opacity-70"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-gray-800/90 to-black/50"></div>
               <div className="relative z-10 h-full flex flex-col justify-between">
@@ -554,7 +602,7 @@ const HomePage = () => {
               </p>
             </motion.div>
 
-            {/* Small Card 2 - FAIM Certified */}
+            {/* Small Card 2 - FAIM Certified with Link */}
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -563,21 +611,28 @@ const HomePage = () => {
               className="rounded-sm p-6 relative overflow-hidden group cursor-pointer"
               style={{ backgroundColor: "#FFF3E0" }}
             >
-              <div
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-sm mb-4 flex items-center justify-center"
-                style={{ backgroundColor: colors.yellow }}
+              <a
+                href="https://www.faim.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
               >
-                <Award size={20} className="text-black sm:w-6 sm:h-6" />
-              </div>
-              <div
-                className="text-3xl sm:text-4xl font-bold mb-2"
-                style={{ color: colors.darkGray }}
-              >
-                FAIM
-              </div>
-              <p className="text-sm sm:text-base text-gray-700 font-medium">
-                Quality Certified
-              </p>
+                <div
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-sm mb-4 flex items-center justify-center group-hover:scale-110 transition-transform"
+                  style={{ backgroundColor: colors.yellow }}
+                >
+                  <Award size={20} className="text-black sm:w-6 sm:h-6" />
+                </div>
+                <div
+                  className="text-3xl sm:text-4xl font-bold mb-2"
+                  style={{ color: colors.darkGray }}
+                >
+                  FAIM
+                </div>
+                <p className="text-sm sm:text-base text-gray-700 font-medium">
+                  Quality Certified
+                </p>
+              </a>
             </motion.div>
 
             {/* Medium Card 1 - Global Network with Background Image */}
@@ -592,15 +647,23 @@ const HomePage = () => {
                 src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80"
                 alt="Global shipping"
                 className="absolute inset-0 w-full h-full object-cover opacity-20"
+                loading="lazy"
               />
               <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div className="flex-1">
-                  <div
-                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-sm mb-4 flex items-center justify-center"
-                    style={{ backgroundColor: colors.yellow }}
+                  <a
+                    href="https://www.fidi.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block"
                   >
-                    <GiWorld size={24} className="text-black sm:w-7 sm:h-7" />
-                  </div>
+                    <div
+                      className="w-12 h-12 sm:w-14 sm:h-14 rounded-sm mb-4 flex items-center justify-center hover:scale-110 transition-transform"
+                      style={{ backgroundColor: colors.yellow }}
+                    >
+                      <GiWorld size={24} className="text-black sm:w-7 sm:h-7" />
+                    </div>
+                  </a>
                   <h3
                     className="text-2xl sm:text-3xl font-bold mb-2"
                     style={{ color: colors.darkGray }}
@@ -641,6 +704,7 @@ const HomePage = () => {
                 src="/9.jpg"
                 alt="Happy customers"
                 className="absolute inset-0 w-full h-full object-cover opacity-40"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/60 to-orange-400/60"></div>
               <div className="relative z-10 h-full p-6 sm:p-8 flex flex-col justify-between">
@@ -672,6 +736,7 @@ const HomePage = () => {
                         src={`https://randomuser.me/api/portraits/${person.gender}/${person.id}.jpg`}
                         alt={`Client ${i + 1}`}
                         className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white object-cover"
+                        loading="lazy"
                       />
                     ))}
                   </div>
@@ -821,12 +886,27 @@ const HomePage = () => {
           </motion.div>
         </div>
       </section>
-      {/* Testimonials */}
-      <section
-        className="py-12 sm:py-20"
-        style={{ backgroundColor: colors.cream }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      {/* Testimonials with Background Image */}
+      <section className="py-12 sm:py-20 relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/glens3.webp"
+            alt="Moving services background"
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-br from-cream/95 via-cream/90 to-cream/95"
+            style={{
+              backgroundColor: `${colors.cream}95`,
+              backgroundBlendMode: "multiply",
+            }}
+          ></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -884,6 +964,7 @@ const HomePage = () => {
                       src={testimonial.companyLogo}
                       alt={`${testimonial.company} logo`}
                       className="h-8 sm:h-10 w-auto object-contain"
+                      loading="lazy"
                     />
                   </div>
                 )}
@@ -913,6 +994,7 @@ const HomePage = () => {
                         src={testimonial.authorImage}
                         alt={testimonial.author}
                         className="w-full h-full object-cover"
+                        loading="lazy"
                       />
                     ) : (
                       testimonial.author.charAt(0)
@@ -947,15 +1029,30 @@ const HomePage = () => {
             </p>
             <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-8">
               {[
-                { name: "FIDI", logo: "/FIDI.png" },
-                { name: "IAM", logo: "/IAM.png" },
-                { name: "FAIM", logo: "/FAIM.png" },
-                { name: "ISO 9001", logo: "/iso.png" },
+                {
+                  name: "FIDI",
+                  logo: "/FIDI.png",
+                  url: "https://www.fidi.org/",
+                },
+                {
+                  name: "IAM",
+                  logo: "/IAM.png",
+                  url: "https://www.iamovers.org/",
+                },
+                {
+                  name: "FAIM",
+                  logo: "/FAIM.png",
+                  url: "https://www.faim.org/",
+                },
+                { name: "ISO 9001", logo: "/iso.png", url: "#" },
               ].map((badge, idx) => (
-                <motion.div
+                <motion.a
                   key={idx}
+                  href={badge.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
-                  className="px-6 py-3 rounded-sm border-2 flex items-center justify-center min-w-[120px] h-16 sm:h-20"
+                  className="px-6 py-3 rounded-sm border-2 flex items-center justify-center min-w-[120px] h-16 sm:h-20 bg-white/80 backdrop-blur-sm hover:bg-white transition-all"
                   style={{
                     borderColor: colors.yellow,
                   }}
@@ -964,13 +1061,14 @@ const HomePage = () => {
                     src={badge.logo}
                     alt={`${badge.name} certification`}
                     className="max-h-full w-auto object-contain"
+                    loading="lazy"
                     onError={(e) => {
                       // Fallback to text if image fails to load
                       e.target.style.display = "none";
                       e.target.parentElement.innerHTML = `<span class="font-bold text-sm sm:text-base" style="color: ${colors.darkGray}">${badge.name}</span>`;
                     }}
                   />
-                </motion.div>
+                </motion.a>
               ))}
             </div>
           </motion.div>
