@@ -8,6 +8,8 @@ import {
   CheckCircle, Shield, Users, Clock, Award, ArrowRight, Star, Quote, Home,
   Info, Briefcase, Tag, FileText, HelpCircle, MessageSquare
 } from 'lucide-react';
+import { TiThMenuOutline } from "react-icons/ti";
+import { CgMenuGridR } from "react-icons/cg";
 
 // Color Palette
 const colors = {
@@ -67,7 +69,7 @@ const Navigation = () => {
       <nav className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled 
           ? 'bg-white/80 backdrop-blur-lg shadow-lg' 
-          : 'bg-white/60 backdrop-blur-md'
+          : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
@@ -177,7 +179,7 @@ const Navigation = () => {
               className="md:hidden z-50 relative"
               style={{ color: colors.darkGray }}
             >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
+              {isOpen ? <X size={28} /> : <TiThMenuOutline size={28} />}
             </button>
           </div>
         </div>

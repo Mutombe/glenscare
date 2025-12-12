@@ -60,7 +60,7 @@ const colors = {
 const HomePage = () => {
   // Hero Background Carousel
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const heroBackgroundImages = ["/glens3.webp"];
+  const heroBackgroundImages = ["/glens3.webp", "/3.jpeg", "/4.jpeg", "/main.jpg"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -115,7 +115,7 @@ const HomePage = () => {
   return (
     <div className="pt-20">
       {/* Hero Section - Split Layout with Background Carousel */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center overflow-hidden -mt-20">
         {/* Background Carousel */}
         <div className="absolute inset-0">
           <AnimatePresence mode="wait">
@@ -125,7 +125,7 @@ const HomePage = () => {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 1.5 }}
-              className="absolute inset-0"
+              className="absolute inset-0 -top-20"
             >
               <img
                 src={heroBackgroundImages[currentImageIndex]}
@@ -134,7 +134,7 @@ const HomePage = () => {
                 loading="eager"
               />
               {/* Gradient overlay for better text readability */}
-              <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-white/70"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-orange/85 to-white/70"></div>
             </motion.div>
           </AnimatePresence>
         </div>
