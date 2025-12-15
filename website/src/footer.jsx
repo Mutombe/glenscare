@@ -154,7 +154,6 @@ const Footer = () => (
         <p>
           &copy; {new Date().getFullYear()} Glens Care. All rights reserved.
         </p>
-        <p className="mt-2 text-sm">From crane to train, we do everything.</p>
         <p className="mt-2 text-sm">
           Designed by{" "}
           <a
