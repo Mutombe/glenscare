@@ -60,7 +60,7 @@ const colors = {
 const HomePage = () => {
   // Hero Background Carousel
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const heroBackgroundImages = ["/glens3.webp", "/3.jpeg", "/4.jpeg", "/main.jpg"];
+  const heroBackgroundImages = ["/12.jpeg", "/3.jpeg", "/4.jpeg", "/main.jpg"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -333,7 +333,7 @@ const HomePage = () => {
                     transition={{ delay: 0.3, duration: 0.6 }}
                   >
                     <image
-                      href="/glens3.webp"
+                      href="/12.jpeg"
                       x="0"
                       y="0"
                       width="600"
@@ -350,7 +350,7 @@ const HomePage = () => {
                     transition={{ delay: 0.4, duration: 0.6 }}
                   >
                     <image
-                      href="/glens3.webp"
+                      href="/12.jpeg"
                       x="0"
                       y="0"
                       width="600"
@@ -367,7 +367,7 @@ const HomePage = () => {
                     transition={{ delay: 0.5, duration: 0.6 }}
                   >
                     <image
-                      href="/glens3.webp"
+                      href="/12.jpeg"
                       x="0"
                       y="0"
                       width="600"
@@ -384,7 +384,7 @@ const HomePage = () => {
                     transition={{ delay: 0.6, duration: 0.6 }}
                   >
                     <image
-                      href="/glens3.webp"
+                      href="/12.jpeg"
                       x="0"
                       y="0"
                       width="600"
