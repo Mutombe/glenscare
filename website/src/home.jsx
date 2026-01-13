@@ -892,7 +892,7 @@ const HomePage = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/glens3.webp"
+            src="/3.jpeg"
             alt="Moving services background"
             className="w-full h-full object-cover"
             loading="lazy"
