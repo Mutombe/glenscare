@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Shield, FileText, Lock, Award, CheckCircle, 
-  Download, ArrowRight, Eye, Users, Leaf, Scale, Globe
+import {
+  Shield, FileText, Lock, Award, CheckCircle,
+  Download, ArrowRight, Eye, Users, Leaf, Scale, Globe, Link2
 } from 'lucide-react';
+import { toast } from 'sonner';
 import { IoArchiveOutline } from "react-icons/io5";
 import { GiWorld } from "react-icons/gi";
 import { GiTruck } from "react-icons/gi";
@@ -110,6 +111,15 @@ const PoliciesPage = () => {
     document.body.removeChild(link);
   };
 
+  const handleCopyLink = (pdfUrl, title) => {
+    const fullUrl = window.location.origin + pdfUrl;
+    navigator.clipboard.writeText(fullUrl).then(() => {
+      toast.success(`Link copied for "${title}"`);
+    }).catch(() => {
+      toast.error('Failed to copy link');
+    });
+  };
+
   return (
     <div className="pt-20">
       <section className="py-20 bg-gradient-to-br from-white via-gray-50 to-white">
@@ -151,7 +161,17 @@ const PoliciesPage = () => {
                 style={{ backgroundColor: policies[0].color }}></div>
               <div className="absolute bottom-0 left-0 w-64 h-2 group-hover:h-full transition-all duration-500 opacity-5"
                 style={{ backgroundColor: policies[0].color }}></div>
-              
+
+              <motion.button
+                whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => handleCopyLink(policies[0].pdfUrl, policies[0].title)}
+                className="absolute top-4 right-4 z-20 w-9 h-9 rounded-sm flex items-center justify-center bg-white/80 backdrop-blur-sm shadow-md hover:bg-white transition-colors"
+                title="Copy link"
+              >
+                <Link2 size={16} color={colors.darkGray} />
+              </motion.button>
+
               <div className="p-8 md:p-12 relative z-10">
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex items-center gap-4">
@@ -192,7 +212,17 @@ const PoliciesPage = () => {
               style={{ backgroundColor: policies[1].color }}
             >
               <div className="absolute -top-12 -right-12 w-32 h-32 rounded-sm opacity-20 bg-white"></div>
-              
+
+              <motion.button
+                whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => handleCopyLink(policies[1].pdfUrl, policies[1].title)}
+                className="absolute top-4 right-4 z-20 w-9 h-9 rounded-sm flex items-center justify-center bg-white/20 backdrop-blur-sm shadow-md hover:bg-white/40 transition-colors"
+                title="Copy link"
+              >
+                <Link2 size={16} color="white" />
+              </motion.button>
+
               <div className="p-8 h-full flex flex-col relative z-10">
                 <div className="mb-6">
                   <div className="w-14 h-14 flex items-center justify-center rounded-sm mb-4 bg-white/20 backdrop-blur-sm group-hover:scale-110 transition-transform">
@@ -227,7 +257,17 @@ const PoliciesPage = () => {
             >
               <div className="absolute top-0 left-0 h-full w-3 group-hover:w-full transition-all duration-300 opacity-10"
                 style={{ backgroundColor: policies[2].color }}></div>
-              
+
+              <motion.button
+                whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => handleCopyLink(policies[2].pdfUrl, policies[2].title)}
+                className="absolute top-3 right-3 z-20 w-8 h-8 rounded-sm flex items-center justify-center bg-white/80 backdrop-blur-sm shadow-md hover:bg-gray-100 transition-colors"
+                title="Copy link"
+              >
+                <Link2 size={14} color={colors.darkGray} />
+              </motion.button>
+
               <div className="p-6 flex items-center gap-6 relative z-10">
                 <div className="w-12 h-12 flex items-center justify-center rounded-sm flex-shrink-0 group-hover:scale-110 transition-transform"
                   style={{ backgroundColor: policies[2].color }}>
@@ -264,7 +304,17 @@ const PoliciesPage = () => {
             >
               <div className="absolute bottom-0 right-0 w-32 h-32 rounded-sm translate-y-16 translate-x-16 opacity-20"
                 style={{ backgroundColor: policies[3].color }}></div>
-              
+
+              <motion.button
+                whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => handleCopyLink(policies[3].pdfUrl, policies[3].title)}
+                className="absolute top-3 right-3 z-20 w-8 h-8 rounded-sm flex items-center justify-center bg-white/80 backdrop-blur-sm shadow-md hover:bg-white transition-colors"
+                title="Copy link"
+              >
+                <Link2 size={14} color={colors.darkGray} />
+              </motion.button>
+
               <div className="p-6 flex items-center gap-6 relative z-10">
                 <div className="w-12 h-12 flex items-center justify-center rounded-sm flex-shrink-0 group-hover:rotate-12 transition-transform"
                   style={{ backgroundColor: policies[3].color }}>
@@ -300,7 +350,17 @@ const PoliciesPage = () => {
             >
               <div className="absolute -top-8 -right-8 w-24 h-24 rounded-sm opacity-10"
                 style={{ backgroundColor: policies[4].color }}></div>
-              
+
+              <motion.button
+                whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => handleCopyLink(policies[4].pdfUrl, policies[4].title)}
+                className="absolute top-4 right-4 z-20 w-9 h-9 rounded-sm flex items-center justify-center bg-white/80 backdrop-blur-sm shadow-md hover:bg-gray-100 transition-colors"
+                title="Copy link"
+              >
+                <Link2 size={16} color={colors.darkGray} />
+              </motion.button>
+
               <div className="p-8 relative z-10">
                 <div className="w-14 h-14 flex items-center justify-center rounded-sm mb-4 group-hover:scale-110 transition-transform"
                   style={{ backgroundColor: policies[4].color }}>
@@ -336,7 +396,17 @@ const PoliciesPage = () => {
             >
               <div className="absolute bottom-0 left-0 w-full h-2 group-hover:h-full transition-all duration-500"
                 style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}></div>
-              
+
+              <motion.button
+                whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => handleCopyLink(policies[5].pdfUrl, policies[5].title)}
+                className="absolute top-4 right-4 z-20 w-9 h-9 rounded-sm flex items-center justify-center bg-white/20 backdrop-blur-sm shadow-md hover:bg-white/40 transition-colors"
+                title="Copy link"
+              >
+                <Link2 size={16} color="white" />
+              </motion.button>
+
               <div className="p-8 relative z-10">
                 <div className="w-14 h-14 flex items-center justify-center rounded-sm mb-4 bg-white/20 backdrop-blur-sm group-hover:rotate-12 transition-transform">
                   {React.createElement(policies[5].icon, { size: 28, color: 'white' })}
@@ -370,7 +440,17 @@ const PoliciesPage = () => {
             >
               <div className="absolute -top-16 -right-16 w-40 h-40 rounded-sm opacity-10"
                 style={{ backgroundColor: policies[6].color }}></div>
-              
+
+              <motion.button
+                whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => handleCopyLink(policies[6].pdfUrl, policies[6].title)}
+                className="absolute top-4 right-4 z-20 w-9 h-9 rounded-sm flex items-center justify-center bg-white/10 backdrop-blur-sm shadow-md hover:bg-white/20 transition-colors"
+                title="Copy link"
+              >
+                <Link2 size={16} color="white" />
+              </motion.button>
+
               <div className="p-8 relative z-10">
                 <div className="w-14 h-14 flex items-center justify-center rounded-sm mb-4 group-hover:scale-110 transition-transform"
                   style={{ backgroundColor: policies[6].color }}>
@@ -407,7 +487,17 @@ const PoliciesPage = () => {
                 style={{ backgroundColor: policies[7].color }}></div>
               <div className="absolute bottom-0 left-0 w-48 h-48 rounded-sm translate-y-24 -translate-x-24 opacity-10"
                 style={{ backgroundColor: policies[7].color }}></div>
-              
+
+              <motion.button
+                whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => handleCopyLink(policies[7].pdfUrl, policies[7].title)}
+                className="absolute top-4 right-4 z-20 w-9 h-9 rounded-sm flex items-center justify-center bg-white/80 backdrop-blur-sm shadow-md hover:bg-white transition-colors"
+                title="Copy link"
+              >
+                <Link2 size={16} color={colors.darkGray} />
+              </motion.button>
+
               <div className="p-8 md:p-12 relative z-10">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                   <div className="flex-grow">
