@@ -208,7 +208,7 @@ const ContactPage = () => {
                     </div>
                     <div className="flex items-start">
                       <Mail size={20} className="mr-3 flex-shrink-0 mt-1" style={{ color: colors.yellow }} />
-                      <span className="text-gray-700">info@glenscare.co.za</span>
+                      <span className="text-gray-700">helpdesk@glens.co.zw</span>
                     </div>
                   </div>
                 </div>

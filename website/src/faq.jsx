@@ -414,12 +414,6 @@ const FAQPage = () => {
                 <div className="space-y-4 mb-8">
                   <div className="flex items-center gap-3 text-gray-700">
                     <div className="w-10 h-10 rounded-sm flex items-center justify-center" style={{ backgroundColor: colors.yellow }}>
-                      <Phone size={20} color={colors.black} />
-                    </div>
-                    <span className="font-semibold">+263 123 456 789</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-gray-700">
-                    <div className="w-10 h-10 rounded-sm flex items-center justify-center" style={{ backgroundColor: colors.yellow }}>
                       <MessageCircle size={20} color={colors.black} />
                     </div>
                     <span className="font-semibold">Live chat available</span>

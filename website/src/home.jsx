@@ -1179,7 +1179,7 @@ const HomePage = () => {
               <div className="hidden sm:block w-1 h-1 rounded-sm bg-gray-400"></div>
               <div className="flex items-center gap-2">
                 <Mail size={16} />
-                <span>info@glenscare.co.zw</span>
+                <span>helpdesk@glens.co.zw</span>
               </div>
             </motion.div>
           </motion.div>

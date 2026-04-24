@@ -130,7 +130,7 @@ const Footer = () => (
             </li>
             <li className="flex items-start">
               <Mail size={16} className="mr-2 mt-1 flex-shrink-0" />
-              <span>info@glenscare.co.zw</span>
+              <span>helpdesk@glens.co.zw</span>
             </li>
           </ul>
         </div>
@@ -144,7 +144,7 @@ const Footer = () => (
             </li>
             <li className="flex items-start">
               <Mail size={16} className="mr-2 mt-1 flex-shrink-0" />
-              <span>info@glenscare.co.za</span>
+              <span>helpdesk@glens.co.zw</span>
             </li>
           </ul>
         </div>
