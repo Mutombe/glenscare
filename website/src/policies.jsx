@@ -42,7 +42,7 @@ const PoliciesPage = () => {
       icon: Scale,
       color: "#FF6B6B",
       category: "Ethics",
-      pdfUrl: "/GLENS REMOVALS -ANTI TRUST CHARTER_2023.pdf"
+      pdfUrl: "/policy-documents/ANTI-BRIBERY & ANTI-CORRUPTION POLICY (ABC POLICY).pdf"
     },
     {
       title: "Service Level Agreement",
@@ -50,7 +50,7 @@ const PoliciesPage = () => {
       icon: CheckCircle,
       color: "#4ECDC4",
       category: "Quality",
-      pdfUrl: "/Glens' Terms and Conditions.pdf"
+      pdfUrl: "/policy-documents/SERVICE LEVEL AGREEMENT (SLA).pdf"
     },
     {
       title: "Terms and Conditions for Carriage",
@@ -66,7 +66,7 @@ const PoliciesPage = () => {
       icon: Lock,
       color: "#F38181",
       category: "Privacy",
-      pdfUrl: "/GLENS REMOVALS DATA PROTECTION POLICY.pdf"
+      pdfUrl: "/policy-documents/DATA PROTECTION POLICY-2026.pdf"
     },
     {
       title: "FIDI Certificate",
@@ -98,7 +98,23 @@ const PoliciesPage = () => {
       icon: GiMapleLeaf,
       color: "#8FD9A8",
       category: "Sustainability",
-      pdfUrl: "/CORPORATE RESPONSIBILITY, SOCIAL & SUSTAINABILITY POLICY.pdf"
+      pdfUrl: "/policy-documents/CORPORATE SUSTAINABILITY PROGRAMME-Revised.pdf"
+    },
+    {
+      title: "Anti-Trust Compliance Procedure",
+      desc: "Our procedure ensuring fair competition and full compliance with anti-trust laws across all markets we operate in.",
+      icon: Scale,
+      color: "#B5EAD7",
+      category: "Compliance",
+      pdfUrl: "/policy-documents/ANTI-TRUST COMPLIANCE PROCEDURE.pdf"
+    },
+    {
+      title: "Mitigation of Bribery & Corruption Risks in the Supply Chain",
+      desc: "How Glens identifies and mitigates bribery and corruption risks throughout our supply chain partnerships.",
+      icon: Shield,
+      color: "#C7CEEA",
+      category: "Ethics",
+      pdfUrl: "/policy-documents/MITIGATION OF BRIBERY & CORRUPTION RISKS IN THE SUPPLY CHAIN.pdf"
     }
   ];
 
@@ -527,6 +543,99 @@ const PoliciesPage = () => {
                     Download
                   </motion.button>
                 </div>
+              </div>
+            </motion.div>
+
+            {/* Policy 9 - Compact Horizontal */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.9 }}
+              className="md:col-span-6 relative overflow-hidden rounded-sm shadow-lg group cursor-pointer bg-white"
+            >
+              <div className="absolute top-0 left-0 h-full w-3 group-hover:w-full transition-all duration-300 opacity-10"
+                style={{ backgroundColor: policies[8].color }}></div>
+
+              <motion.button
+                whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => handleCopyLink(policies[8].pdfUrl, policies[8].title)}
+                className="absolute top-3 right-3 z-20 w-8 h-8 rounded-sm flex items-center justify-center bg-white/80 backdrop-blur-sm shadow-md hover:bg-gray-100 transition-colors"
+                title="Copy link"
+              >
+                <Link2 size={14} color={colors.darkGray} />
+              </motion.button>
+
+              <div className="p-6 flex items-center gap-6 relative z-10">
+                <div className="w-12 h-12 flex items-center justify-center rounded-sm flex-shrink-0 group-hover:scale-110 transition-transform"
+                  style={{ backgroundColor: policies[8].color }}>
+                  {React.createElement(policies[8].icon, { size: 24, color: 'white' })}
+                </div>
+                <div className="flex-grow">
+                  <div className="inline-block px-2 py-1 rounded-sm text-xs font-bold mb-2"
+                    style={{ backgroundColor: policies[8].color, color: 'white' }}>
+                    {policies[8].category}
+                  </div>
+                  <h3 className="text-lg font-bold mb-2" style={{ color: colors.darkGray }}>
+                    {policies[8].title}
+                  </h3>
+                  <p className="text-sm text-gray-600 line-clamp-2">{policies[8].desc}</p>
+                </div>
+                <motion.button
+                  whileHover={{ scale: 1.1, rotate: -10 }}
+                  onClick={() => handleDownload(policies[8].pdfUrl, policies[8].title)}
+                  className="w-10 h-10 rounded-sm flex items-center justify-center flex-shrink-0 shadow-lg"
+                  style={{ backgroundColor: colors.yellow }}
+                >
+                  <Download size={18} color={colors.black} />
+                </motion.button>
+              </div>
+            </motion.div>
+
+            {/* Policy 10 - Compact Horizontal */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 1.0 }}
+              className="md:col-span-6 relative overflow-hidden rounded-sm shadow-lg group cursor-pointer"
+              style={{ backgroundColor: colors.cream }}
+            >
+              <div className="absolute bottom-0 right-0 w-32 h-32 rounded-sm translate-y-16 translate-x-16 opacity-20"
+                style={{ backgroundColor: policies[9].color }}></div>
+
+              <motion.button
+                whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => handleCopyLink(policies[9].pdfUrl, policies[9].title)}
+                className="absolute top-3 right-3 z-20 w-8 h-8 rounded-sm flex items-center justify-center bg-white/80 backdrop-blur-sm shadow-md hover:bg-white transition-colors"
+                title="Copy link"
+              >
+                <Link2 size={14} color={colors.darkGray} />
+              </motion.button>
+
+              <div className="p-6 flex items-center gap-6 relative z-10">
+                <div className="w-12 h-12 flex items-center justify-center rounded-sm flex-shrink-0 group-hover:rotate-12 transition-transform"
+                  style={{ backgroundColor: policies[9].color }}>
+                  {React.createElement(policies[9].icon, { size: 24, color: 'white' })}
+                </div>
+                <div className="flex-grow">
+                  <div className="inline-block px-2 py-1 rounded-sm text-xs font-bold mb-2"
+                    style={{ backgroundColor: policies[9].color, color: 'white' }}>
+                    {policies[9].category}
+                  </div>
+                  <h3 className="text-lg font-bold mb-2" style={{ color: colors.darkGray }}>
+                    {policies[9].title}
+                  </h3>
+                  <p className="text-sm text-gray-700 line-clamp-2">{policies[9].desc}</p>
+                </div>
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  onClick={() => handleDownload(policies[9].pdfUrl, policies[9].title)}
+                  className="w-10 h-10 rounded-sm flex items-center justify-center flex-shrink-0 shadow-lg"
+                  style={{ backgroundColor: colors.yellow }}
+                >
+                  <Download size={18} color={colors.black} />
+                </motion.button>
               </div>
             </motion.div>
           </div>
